@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chosen Palette: Logo-Driven (Slate Blue, Vibrant Orange, Cyan) -->
+    <!-- Application Structure Plan: Final refined linear scroll. Flow: 1. Hero (Hook), 2. Promise (Address Fears), 3. Process (Simplify), 4. Gemini Interview Assistant, 5. Offers, 6. Gemini Profile Analyzer, 7. Testimonials, 8. Gemini Adaptation Guide, 9. Contact (Convert). Micro-interactions and visual hierarchy have been polished for a premium feel. -->
+    <!-- Visualization & Content Choices: Report Info -> Goal -> Presentation -> Interaction -> Justification. | CTA Buttons -> Drive Action -> Enhanced hover effects (shine) -> Draws user attention to key actions. | Form Inputs -> Improve UX -> Icons inside input fields -> Provides clear visual cues for each field. | Promise Cards -> Emphasize -> Subtle gradient on key promise -> Guides user attention to the strongest value proposition. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <title>Gestores Empresarial S.A.S. | Trabajo Seguro en Polonia para Colombianos</title>
+    <meta name="description" content="Conectamos a trabajadores colombianos con empleos legales y bien remunerados en Polonia. Garantizamos tu contrato firmado antes de viajar. ¡Inicia tu futuro hoy!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary-dark: #2C3E50; /* Slate Blue */
+            --color-accent-orange: #F39C12; /* Vibrant Orange */
+            --color-accent-cyan: #3498DB; /* Bright Cyan */
+            --color-background-light: #F8F9F9; /* Lighter cool gray */
+            --color-text-primary: #34495E; /* Dark gray */
+            --color-text-secondary: #5D6D7E;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-background-light);
+            color: var(--color-text-primary);
+        }
+        h1, h2, h3, .font-heading {
+            font-family: 'Roboto Slab', serif;
+            color: var(--color-primary-dark);
+            font-weight: 800;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-gradient {
+            background: linear-gradient(60deg, rgba(44, 62, 80, 0.9) 0%, rgba(44, 62, 80, 0.7) 100%);
+        }
+        .promise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(44, 62, 80, 0.15);
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+            transform: rotate(45deg);
+            transition: all 0.4s ease;
+            opacity: 0;
+        }
+        .btn-shine:hover::after {
+            left: 100%;
+            opacity: 1;
+            transition: all 0.6s ease;
+        }
+        #notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%, 150%);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.5s ease-in-out;
+            z-index: 200;
+        }
+        #notification.show {
+            transform: translate(-50%, 0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-40 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
+             <a href="#" class="text-xl md:text-2xl font-bold font-heading" style="color: var(--color-primary-dark);">Gestores Empresarial S.A.S.</a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#promesa" class="text-gray-600 hover:text-[var(--color-accent-orange)] transition font-medium">Nuestra Promesa</a>
+                <a href="#asistente-ia" class="text-gray-600 hover:text-[var(--color-accent-orange)] transition font-medium">Asistentes IA ✨</a>
+                <a href="#ofertas" class="text-gray-600 hover:text-[var(--color-accent-orange)] transition font-medium">Ofertas</a>
+                <a href="#testimonios" class="text-gray-600 hover:text-[var(--color-accent-orange)] transition font-medium">Testimonios</a>
+                <a href="#contacto" class="btn-shine text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow" style="background-color: var(--color-primary-dark);" onmouseover="this.style.backgroundColor='var(--color-accent-orange)';" onmouseout="this.style.backgroundColor='var(--color-primary-dark)';">Contactar</a>
+            </div>
+            <button id="mobile-menu-button" class="lg:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl" style="color: var(--color-primary-dark);"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+            <a href="#promesa" class="block text-center py-3 px-4 text-gray-600 hover:bg-orange-50 transition">Nuestra Promesa</a>
+            <a href="#asistente-ia" class="block text-center py-3 px-4 text-gray-600 hover:bg-orange-50 transition">Asistentes IA ✨</a>
+            <a href="#ofertas" class="block text-center py-3 px-4 text-gray-600 hover:bg-orange-50 transition">Ofertas</a>
+            <a href="#testimonios" class="block text-center py-3 px-4 text-gray-600 hover:bg-orange-50 transition">Testimonios</a>
+            <a href="#contacto" class="block text-center py-4 px-4 text-white font-semibold transition" style="background-color: var(--color-primary-dark);">Contactar</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="relative text-white min-h-[75vh] md:min-h-[85vh] flex items-center">
+             <div class="absolute inset-0">
+                <img src="https://images.unsplash.com/photo-1560689404-48034a74362b?q=80&w=2070&auto=format&fit=crop" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/333/fff?text=Varsovia';" 
+                     alt="Vista panorámica de una ciudad polaca al atardecer" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 hero-gradient"></div>
+            </div>
+            <div class="relative container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold font-heading leading-tight mb-6 text-white">Tu Futuro Próspero y Seguro Comienza en Polonia.</h1>
+                <p class="max-w-3xl mx-auto text-lg lg:text-xl text-gray-200 mb-10 font-light">Con <span class="font-semibold" style="color: var(--color-accent-orange);">contrato de trabajo 100% garantizado</span> antes de viajar. Somos tu puente seguro hacia oportunidades reales en Europa. Olvídate del miedo, nosotros te acompañamos.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#ofertas" class="w-full sm:w-auto text-white font-bold text-lg px-8 py-4 rounded-lg transition-transform duration-300 shadow-lg transform hover:scale-105 btn-shine" style="background-color: var(--color-accent-orange);" onmouseover="this.style.backgroundColor='#F5B041';" onmouseout="this.style.backgroundColor='var(--color-accent-orange)';">Ver Ofertas de Empleo</a>
+                    <a href="#contacto" class="w-full sm:w-auto bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold text-lg px-8 py-4 rounded-lg hover:bg-white/30 transition transform hover:scale-105">Hablar con un Asesor</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="promesa" class="py-20 lg:py-24 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold font-heading">Nuestra Promesa Inquebrantable</h2>
+                    <p class="max-w-3xl mx-auto mt-4 text-lg" style="color: var(--color-text-secondary);">Tu éxito y tranquilidad son nuestra única prioridad. Estas son nuestras 6 garantías fundamentales:</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent promise-card transition-all duration-300">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-5" style="background-color: #ecf0f1;"><i class="fas fa-gavel fa-2x" style="color: var(--color-accent-orange);"></i></div>
+                        <h3 class="font-bold font-heading text-xl mb-3">1. Legalidad Total</h3>
+                        <p style="color: var(--color-text-secondary);">Operamos bajo todas las normativas. Gestionamos tu visa de trabajo con total transparencia. Cero sorpresas, cero riesgos.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent promise-card transition-all duration-300">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-5" style="background-color: #ecf0f1;"><i class="fas fa-hand-holding-dollar fa-2x" style="color: var(--color-accent-orange);"></i></div>
+                        <h3 class="font-bold font-heading text-xl mb-3">2. Inversión Clara</h3>
+                        <p style="color: var(--color-text-secondary);">Conocerás todos los costos de forma detallada desde el día uno. No existen pagos ocultos. Tu inversión está segura.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent promise-card transition-all duration-300">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-5" style="background-color: #ecf0f1;"><i class="fas fa-house-chimney-user fa-2x" style="color: var(--color-accent-orange);"></i></div>
+                        <h3 class="font-bold font-heading text-xl mb-3">3. Vivienda Digna</h3>
+                        <p style="color: var(--color-text-secondary);">Aseguramos una residencia segura y cómoda antes de tu llegada. Prohibimos el hacinamiento y garantizamos tu bienestar.</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent promise-card transition-all duration-300">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-5" style="background-color: #ecf0f1;"><i class="fas fa-briefcase fa-2x" style="color: var(--color-accent-orange);"></i></div>
+                        <h3 class="font-bold font-heading text-xl mb-3">4. Empleo Verificado</h3>
+                        <p style="color: var(--color-text-secondary);">Solo trabajamos con empleadores serios. Tu contrato garantiza pago puntual, respeto a tus derechos y condiciones seguras.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-2xl border-b-4 promise-card transition-all duration-300 transform scale-105" style="border-color: var(--color-accent-orange); background: linear-gradient(145deg, #ffffff, #fff9f0);">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-5" style="background-color: var(--color-accent-orange);"><i class="fas fa-shield-halved fa-2x text-white"></i></div>
+                        <h3 class="font-bold font-heading text-xl mb-3">5. Protección Anti-Fraude</h3>
+                        <p class="font-semibold" style="color: var(--color-text-secondary);">¡Firmas tu contrato ANTES de comprar el tiquete! Esta es nuestra mayor garantía. Viajas sobre seguro.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-b-4 border-transparent promise-card transition-all duration-300">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mb-5" style="background-color: #ecf0f1;"><i class="fas fa-people-group fa-2x" style="color: var(--color-accent-orange);"></i></div>
+                        <h3 class="font-bold font-heading text-xl mb-3">6. Acompañamiento Total</h3>
+                        <p style="color: var(--color-text-secondary);">Estamos contigo desde Colombia hasta tu instalación en Polonia. Te damos el soporte que necesitas para adaptarte con éxito.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proceso" class="py-20 lg:py-24 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold font-heading">Tu Camino a Polonia en 4 Pasos</h2>
+                    <p class="max-w-3xl mx-auto mt-4 text-lg" style="color: var(--color-text-secondary);">Hemos simplificado el proceso para que sea directo y sin complicaciones. Te llevamos de la mano.</p>
+                </div>
+                <div class="relative grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="hidden md:block absolute top-12 left-0 w-full h-1" style="background: linear-gradient(90deg, transparent, var(--color-accent-orange), transparent); opacity: 0.2; z-index: 0;"></div>
+                    <div class="relative flex flex-col items-center text-center p-6">
+                        <div class="w-24 h-24 text-white flex items-center justify-center rounded-full text-4xl font-bold mb-4 z-10 shadow-lg border-4 border-white" style="background-color: var(--color-primary-dark);">1</div>
+                        <h3 class="font-bold font-heading text-xl mb-2">Contacto y Asesoría</h3>
+                        <p style="color: var(--color-text-secondary);">Evaluamos tu perfil y resolvemos tus dudas sin costo.</p>
+                    </div>
+                    <div class="relative flex flex-col items-center text-center p-6">
+                        <div class="w-24 h-24 text-white flex items-center justify-center rounded-full text-4xl font-bold mb-4 z-10 shadow-lg border-4 border-white" style="background-color: var(--color-primary-dark);">2</div>
+                        <h3 class="font-bold font-heading text-xl mb-2">Selección y Documentos</h3>
+                        <p style="color: var(--color-text-secondary);">Te postulas y te guiamos con todo el papeleo.</p>
+                    </div>
+                    <div class="relative flex flex-col items-center text-center p-6">
+                        <div class="w-24 h-24 text-white flex items-center justify-center rounded-full text-4xl font-bold mb-4 z-10 shadow-lg border-4 border-white" style="background-color: var(--color-primary-dark);">3</div>
+                        <h3 class="font-bold font-heading text-xl mb-2">Viaje e Instalación</h3>
+                        <p style="color: var(--color-text-secondary);">Firmas contrato, gestionamos tu visa y coordinamos tu llegada.</p>
+                    </div>
+                    <div class="relative flex flex-col items-center text-center p-6">
+                        <div class="w-24 h-24 text-white flex items-center justify-center rounded-full text-4xl font-bold mb-4 z-10 shadow-lg border-4 border-white" style="background-color: var(--color-primary-dark);">4</div>
+                        <h3 class="font-bold font-heading text-xl mb-2">Soporte Continuo</h3>
+                        <p style="color: var(--color-text-secondary);">Nuestro equipo en Polonia te apoya para tu adaptación.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="asistente-ia" class="py-20 lg:py-24 fade-in-section" style="background-color: #fef9e7;">
+             <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <i class="fas fa-robot text-5xl mb-4" style="color: var(--color-accent-orange);"></i>
+                    <h2 class="text-4xl lg:text-5xl font-bold font-heading">Asistentes IA a tu Servicio ✨</h2>
+                    <p class="max-w-xl mx-auto lg:mx-0 mt-4 text-lg mb-8" style="color: var(--color-text-secondary);">Usa nuestras herramientas gratuitas para potenciar tu perfil y llegar con total confianza a tu nueva vida. Estamos para apoyarte en cada paso.</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                         <label for="job-type-selector" class="font-semibold text-gray-700 block mb-2">1. Prepara tu Entrevista</label>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <select id="job-type-selector" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-accent-orange);">
+                                <option value="Operario de Producción">Operario de Producción</option>
+                                <option value="Ayudante de Construcción">Ayudante de Construcción</option>
+                                <option value="Personal de Empaque y Logística">Personal de Empaque y Logística</option>
+                                <option value="Soldador">Soldador</option>
+                                <option value="Montacarguista">Montacarguista</option>
+                            </select>
+                            <button id="get-interview-tips-btn" class="btn-shine w-full sm:w-auto text-white font-semibold px-6 py-3 rounded-lg transition" style="background-color: var(--color-primary-dark);" onmouseover="this.style.backgroundColor='var(--color-accent-orange)';" onmouseout="this.style.backgroundColor='var(--color-primary-dark)';">Consejos</button>
+                        </div>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <label class="font-semibold text-gray-700 block mb-2">2. Recibe tu Guía de Adaptación a Polonia</label>
+                        <button id="get-adaptation-tips-btn" class="w-full text-white font-semibold px-8 py-3 rounded-lg transition shadow-lg transform hover:scale-105 btn-shine" style="background-color: var(--color-primary-dark);" onmouseover="this.style.backgroundColor='var(--color-accent-orange)';" onmouseout="this.style.backgroundColor='var(--color-primary-dark)';">Obtener Guía Cultural</button>
+                     </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="ofertas" class="py-20 lg:py-24 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold font-heading">Oportunidades que te Esperan</h2>
+                    <p class="max-w-3xl mx-auto mt-4 text-lg" style="color: var(--color-text-secondary);">Estas son algunas de las vacantes más solicitadas. Encuentra la tuya e inicia tu postulación.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-[var(--color-accent-orange)] transition-all duration-300 flex flex-col group">
+                        <div class="p-8 flex-grow">
+                            <h3 class="font-bold font-heading text-2xl mb-2">Operario de Producción</h3>
+                            <p class="text-gray-500 mb-6 font-medium"><i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>Importante empresa en Gdansk, Polonia</p>
+                            <ul class="space-y-3" style="color: var(--color-text-secondary);">
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Salario competitivo en Esloti polaco (PLN).</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Contrato legal garantizado antes de viajar.</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Asistencia completa para tu alojamiento.</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 bg-gray-50 group-hover:bg-[#fef9e7] transition-all duration-300">
+                            <button class="job-apply-button btn-shine w-full text-white font-semibold py-3 rounded-lg transition" style="background-color: var(--color-primary-dark);" onmouseover="this.style.backgroundColor='var(--color-accent-orange)';" onmouseout="this.style.backgroundColor='var(--color-primary-dark)';" data-job-title="Operario de Producción">Postularme</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-[var(--color-accent-orange)] transition-all duration-300 flex flex-col group">
+                        <div class="p-8 flex-grow">
+                            <h3 class="font-bold font-heading text-2xl mb-2">Ayudante de Construcción</h3>
+                            <p class="text-gray-500 mb-6 font-medium"><i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>Reconocida constructora en Varsovia</p>
+                            <ul class="space-y-3" style="color: var(--color-text-secondary);">
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Horas extra y bonificaciones por rendimiento.</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Contrato a término indefinido post-prueba.</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Seguro médico y dotación de seguridad.</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 bg-gray-50 group-hover:bg-[#fef9e7] transition-all duration-300">
+                            <button class="job-apply-button btn-shine w-full text-white font-semibold py-3 rounded-lg transition" style="background-color: var(--color-primary-dark);" onmouseover="this.style.backgroundColor='var(--color-accent-orange)';" onmouseout="this.style.backgroundColor='var(--color-primary-dark)';" data-job-title="Ayudante de Construcción">Postularme</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-transparent hover:border-[var(--color-accent-orange)] transition-all duration-300 flex flex-col group">
+                        <div class="p-8 flex-grow">
+                            <h3 class="font-bold font-heading text-2xl mb-2">Personal de Empaque</h3>
+                            <p class="text-gray-500 mb-6 font-medium"><i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>Centro de distribución en Cracovia</p>
+                            <ul class="space-y-3" style="color: var(--color-text-secondary);">
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Ambiente de trabajo moderno y seguro.</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Contrato de trabajo 100% legal.</li>
+                                <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Posibilidad de crecimiento en la empresa.</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 bg-gray-50 group-hover:bg-[#fef9e7] transition-all duration-300">
+                            <button class="job-apply-button btn-shine w-full text-white font-semibold py-3 rounded-lg transition" style="background-color: var(--color-primary-dark);" onmouseover="this.style.backgroundColor='var(--color-accent-orange)';" onmouseout="this.style.backgroundColor='var(--color-primary-dark)';" data-job-title="Personal de Empaque y Logística">Postularme</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analizador-ia" class="py-20 lg:py-24 fade-in-section bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <i class="fas fa-user-check text-5xl mb-4" style="color: var(--color-accent-orange);"></i>
+                <h2 class="text-4xl lg:text-5xl font-bold font-heading">Analiza y Potencia tu Perfil con IA</h2>
+                <p class="max-w-3xl mx-auto mt-4 text-lg mb-8" style="color: var(--color-text-secondary);">¿Tu experiencia encaja? Pega un resumen de tu hoja de vida, descubre tus puntos fuertes y recibe un borrador de mensaje de presentación.</p>
+                <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg text-left">
+                    <div class="grid grid-cols-1 gap-6 mb-6">
+                         <div>
+                            <label for="profile-job-type" class="font-semibold text-gray-700 block mb-2">1. Selecciona el puesto al que aplicas</label>
+                             <select id="profile-job-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-accent-orange);">
+                                <option value="Operario de Producción">Operario de Producción</option>
+                                <option value="Ayudante de Construcción">Ayudante de Construcción</option>
+                                <option value="Personal de Empaque y Logística">Personal de Empaque y Logística</option>
+                                <option value="Soldador">Soldador</option>
+                                <option value="Montacarguista">Montacarguista</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="user-experience" class="font-semibold text-gray-700 block mb-2">2. Pega aquí un resumen de tu experiencia laboral</label>
+                            <textarea id="user-experience" rows="8" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-accent-orange);" placeholder="Ej: Fui operario de máquina por 5 años en una empresa de alimentos. Me encargaba del mantenimiento preventivo y de cumplir las metas de producción..."></textarea>
+                        </div>
+                    </div>
+                    <button id="analyze-profile-btn" class="w-full text-white font-bold py-4 rounded-lg transition shadow-lg transform hover:scale-105 btn-shine" style="background-color: var(--color-primary-dark);" onmouseover="this.style.backgroundColor='var(--color-accent-orange)';" onmouseout="this.style.backgroundColor='var(--color-primary-dark)';">Analizar mi Perfil</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="py-20 lg:py-24 fade-in-section">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold font-heading">Colombianos como tú, triunfando hoy</h2>
+                    <p class="max-w-3xl mx-auto mt-4 text-lg" style="color: var(--color-text-secondary);">La mejor prueba de nuestro compromiso es la historia de éxito de quienes ya dieron el paso.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/80x80/D5D9E0/34495E?text=CV" onerror="this.onerror=null;this.src='https://placehold.co/80x80/E2E8F0/4A5568?text=User';" alt="Foto de Carlos V." class="w-16 h-16 rounded-full mr-4 border-2" style="border-color: var(--color-accent-orange);">
+                            <div>
+                                <p class="font-bold font-heading text-lg">Carlos V.</p>
+                                <p class="text-sm text-gray-500">Operario en Varsovia</p>
+                            </div>
+                        </div>
+                        <p class="italic" style="color: var(--color-text-secondary);">"Tenía mucho miedo de las estafas. Gestores Empresarial me dio una seguridad que nadie más ofrecía. Firmar mi contrato desde Colombia lo cambió todo. Hoy, mi familia vive tranquila gracias a mi trabajo aquí."</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/80x80/D5D9E0/34495E?text=JR" onerror="this.onerror=null;this.src='https://placehold.co/80x80/E2E8F0/4A5568?text=User';" alt="Foto de Juliana R." class="w-16 h-16 rounded-full mr-4 border-2" style="border-color: var(--color-accent-orange);">
+                            <div>
+                                <p class="font-bold font-heading text-lg">Juliana R.</p>
+                                <p class="text-sm text-gray-500">Empacadora en Gdansk</p>
+                            </div>
+                        </div>
+                        <p class="italic" style="color: var(--color-text-secondary);">"El proceso parecía un monstruo de papeleo. Ellos lo hicieron ver simple y me llevaron de la mano en cada paso, hasta encontrarme un apartamento decente. Sin su ayuda, no lo habría logrado."</p>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/80x80/D5D9E0/34495E?text=DM" onerror="this.onerror=null;this.src='https://placehold.co/80x80/E2E8F0/4A5568?text=User';" alt="Foto de David M." class="w-16 h-16 rounded-full mr-4 border-2" style="border-color: var(--color-accent-orange);">
+                            <div>
+                                <p class="font-bold font-heading text-lg">David M.</p>
+                                <p class="text-sm text-gray-500">Ayudante en Cracovia</p>
+                            </div>
+                        </div>
+                        <p class="italic" style="color: var(--color-text-secondary);">"Lo que más valoro es la honestidad. Siempre fueron claros con los costos y con lo que podía esperar. La empresa donde trabajo es seria y me pagan a tiempo, tal como prometieron."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contacto" class="py-20 lg:py-24 fade-in-section bg-white">
+            <div class="container mx-auto px-6">
+                <div class="bg-white rounded-2xl p-8 md:p-12 lg:p-16">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-4xl lg:text-5xl font-bold font-heading mb-4">¿Listo para cambiar tu futuro?</h2>
+                            <p class="text-lg mb-8" style="color: var(--color-text-secondary);">El primer paso está a un clic de distancia. Rellena el formulario y un asesor se pondrá en contacto contigo a la mayor brevedad. La asesoría es gratuita y sin compromiso.</p>
+                             <div class="mt-8 pt-8 border-t border-gray-200 space-y-4">
+                                 <h3 class="font-bold font-heading text-xl mb-4">Información de Contacto</h3>
+                                 <p class="flex items-center" style="color: var(--color-text-secondary);"><i class="fas fa-envelope fa-lg mr-4" style="color: var(--color-accent-orange);"></i>geseg22@gmail.com</p>
+                                 <p class="flex items-center" style="color: var(--color-text-secondary);"><i class="fab fa-whatsapp fa-lg mr-4" style="color: var(--color-accent-orange);"></i>+57 324 452 4494</p>
+                                 <p class="flex items-center" style="color: var(--color-text-secondary);"><i class="fas fa-map-marker-alt fa-lg mr-4" style="color: var(--color-accent-orange);"></i>Cr 94 #4-01, Santiago de Cali, Colombia</p>
+                             </div>
+                        </div>
+                        
+                        <form id="contact-form" class="bg-gray-50 p-8 rounded-lg shadow-inner">
+                            <div class="space-y-6">
+                                <div class="relative">
+                                    <i class="fas fa-user absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
+                                    <input type="text" id="name" class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-accent-orange);" placeholder="Nombre Completo" required>
+                                </div>
+                                <div class="relative">
+                                     <i class="fas fa-envelope absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
+                                    <input type="email" id="email" class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-accent-orange);" placeholder="Correo Electrónico" required>
+                                </div>
+                                <div class="relative">
+                                    <i class="fas fa-phone absolute top-1/2 left-4 -translate-y-1/2 text-gray-400"></i>
+                                    <input type="tel" id="phone" class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-accent-orange);" placeholder="Teléfono / WhatsApp" required>
+                                </div>
+                                <div>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-accent-orange);" placeholder="Mensaje (Opcional)"></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full text-white font-bold text-lg px-8 py-4 rounded-lg transition shadow-lg transform hover:scale-105 btn-shine" style="background-color: var(--color-primary-dark);" onmouseover="this.style.backgroundColor='var(--color-accent-orange)';" onmouseout="this.style.backgroundColor='var(--color-primary-dark)';">Enviar y Empezar mi Proceso</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="background-color: var(--color-primary-dark);" class="text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left items-center">
+                <div>
+                    <h3 class="font-bold font-heading text-2xl mb-4">Gestores Empresarial S.A.S.</h3>
+                    <p class="text-gray-400">Nuestro compromiso es con el trabajador colombiano. Protegemos tu futuro y tu dignidad, garantizando un trato ético, justo y humano.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold font-heading text-xl mb-4">Navegación</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#promesa" class="text-gray-400 hover:text-white transition">Nuestra Promesa</a></li>
+                        <li><a href="#proceso" class="text-gray-400 hover:text-white transition">Proceso</a></li>
+                        <li><a href="#ofertas" class="text-gray-400 hover:text-white transition">Ofertas de Empleo</a></li>
+                        <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h3 class="font-bold font-heading text-xl mb-4">Síguenos</h3>
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <a href="https://www.youtube.com/@GESTORESEMPRESARIALDESEGURIDAD" target="_blank" class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@gestores.empresarial" target="_blank" class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/gestoress.a.s/" target="_blank" class="text-gray-400 hover:text-white text-2xl transition"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-gray-700 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 Gestores Empresarial S.A.S. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="https://wa.me/573244524494?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20estoy%20interesado%20en%20las%20oportunidades%20en%20Polonia." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp" style="margin-top: 15px;"></i>
+    </a>
+
+    <div id="gemini-modal" class="gemini-modal fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-[101] hidden opacity-0">
+        <div id="gemini-modal-content" class="gemini-modal-content bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 transform scale-95">
+            <div class="flex justify-between items-center border-b pb-3 mb-5">
+                <h3 id="gemini-modal-title" class="text-2xl font-bold font-heading"></h3>
+                <button id="close-gemini-modal" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            </div>
+            <div id="gemini-modal-body" class="prose prose-lg max-w-none text-gray-700">
+                <div id="gemini-loading" class="text-center py-10">
+                    <i class="fas fa-spinner fa-spin text-4xl" style="color: var(--color-accent-orange);"></i>
+                    <p class="mt-4 text-lg">Generando consejos personalizados...</p>
+                </div>
+                <div id="gemini-result" class="hidden"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="notification"></div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // All previous JS code is here...
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            navLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+
+            const jobApplyButtons = document.querySelectorAll('.job-apply-button');
+            const messageTextarea = document.getElementById('message');
+            const contactSection = document.getElementById('contacto');
+
+            jobApplyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const jobTitle = button.getAttribute('data-job-title');
+                    messageTextarea.value = `Hola, estoy interesado/a en la oferta de "${jobTitle}". Quisiera recibir más información.`;
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                    messageTextarea.focus();
+                });
+            });
+
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); }});
+            }, { threshold: 0.1 });
+            sections.forEach(section => { observer.observe(section); });
+            
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                header.classList.toggle('shadow-md', window.pageYOffset > 50);
+            }, false);
+
+            // Gemini API functionality
+            const getInterviewTipsBtn = document.getElementById('get-interview-tips-btn');
+            const getAdaptationTipsBtn = document.getElementById('get-adaptation-tips-btn');
+            const analyzeProfileBtn = document.getElementById('analyze-profile-btn');
+            const geminiModal = document.getElementById('gemini-modal');
+            const geminiModalContent = document.getElementById('gemini-modal-content');
+            const closeGeminiModalBtn = document.getElementById('close-gemini-modal');
+            const geminiModalTitle = document.getElementById('gemini-modal-title');
+            const geminiLoading = document.getElementById('gemini-loading');
+            const geminiResult = document.getElementById('gemini-result');
+
+            function openModal() {
+                geminiModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                    geminiModal.classList.add('opacity-100');
+                    geminiModalContent.classList.add('scale-100');
+                }, 10);
+            }
+
+            function closeModal() {
+                geminiModal.classList.remove('opacity-100');
+                geminiModalContent.classList.remove('scale-100');
+                document.body.style.overflow = 'auto';
+                setTimeout(() => {
+                    geminiModal.classList.add('hidden');
+                    geminiLoading.style.display = 'block';
+                    geminiResult.style.display = 'none';
+                    geminiResult.innerHTML = '';
+                }, 300);
+            }
+            
+            closeGeminiModalBtn.addEventListener('click', closeModal);
+            geminiModal.addEventListener('click', (e) => { if(e.target === geminiModal) { closeModal(); } });
+            document.addEventListener('keydown', (e) => { if(e.key === "Escape" && !geminiModal.classList.contains('hidden')){ closeModal(); } });
+
+            async function callGemini(prompt) {
+                geminiLoading.style.display = 'block';
+                geminiResult.style.display = 'none';
+
+                const apiKey = "AIzaSyAqU5bEeEMoLIZxG3E67d4OxlG133UE3N4"; // IMPORTANT: User must add their Gemini API Key here.
+                if (!apiKey) {
+                    geminiResult.innerHTML = "<p><strong>Error:</strong> La clave de la API de Gemini no está configurada. Por favor, agregue la clave en el código para activar la función de IA.</p>";
+                    geminiLoading.style.display = 'none';
+                    geminiResult.style.display = 'block';
+                    return;
+                }
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    
+                    let text = "No se pudo obtener una respuesta. Por favor, inténtelo de nuevo.";
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        text = result.candidates[0].content.parts[0].text;
+                    }
+                    
+                    text = text.replace(/\*\*(.*?)\*\*/g, '<h4 class="font-bold text-lg my-3">$1</h4>');
+                    text = text.replace(/-\s(.*?)(?:\n|$)/g, '<li class="mb-2">$1</li>');
+                    text = text.replace(/\n/g, '<br>');
+                    text = text.replace(/<br><li/g, '<li');
+                    
+                    geminiResult.innerHTML = `<ul>${text}</ul>`;
+                } catch (error) {
+                    console.error("Error calling Gemini API:", error);
+                    geminiResult.innerHTML = "<p>Ocurrió un error al contactar al asistente. Por favor, revise su conexión o inténtelo más tarde.</p>";
+                } finally {
+                    geminiLoading.style.display = 'none';
+                    geminiResult.style.display = 'block';
+                }
+            }
+            
+            getInterviewTipsBtn.addEventListener('click', () => {
+                const jobType = document.getElementById('job-type-selector').value;
+                geminiModalTitle.textContent = `Consejos para Entrevista de ${jobType}`;
+                openModal();
+                const prompt = `Actúa como un experto en reclutamiento internacional. Dame una lista de 5 preguntas comunes de entrevista y 5 consejos clave y prácticos para un candidato colombiano que aplica a un puesto de "${jobType}" en Polonia. El tono debe ser alentador y profesional. Formatea la respuesta usando doble asterisco para los subtítulos (ej. **Preguntas Comunes**) y guiones para los puntos de la lista.`;
+                callGemini(prompt);
+            });
+
+            getAdaptationTipsBtn.addEventListener('click', () => {
+                geminiModalTitle.textContent = "Guía de Adaptación a Polonia";
+                openModal();
+                const prompt = `Actúa como un amigable guía cultural. Crea una guía de bienvenida para un trabajador colombiano que acaba de llegar a Polonia. Organiza la información en estas secciones: Consejos Prácticos, Comida que Debes Probar, Etiqueta Social, y Frases Básicas en Polaco. Para las frases, incluye la pronunciación figurada y el significado. Usa doble asterisco para los títulos de cada sección y guiones para los puntos de la lista. El tono debe ser cálido y muy práctico.`;
+                callGemini(prompt);
+            });
+
+            analyzeProfileBtn.addEventListener('click', () => {
+                const jobType = document.getElementById('profile-job-type').value;
+                const userExperience = document.getElementById('user-experience').value;
+
+                if (!userExperience.trim()) {
+                    alert('Por favor, pega un resumen de tu experiencia laboral en el campo de texto.');
+                    return;
+                }
+
+                geminiModalTitle.textContent = `Análisis de Perfil para ${jobType}`;
+                openModal();
+                const prompt = `Actúa como un reclutador experto y analista de talento para una agencia que conecta trabajadores colombianos con empleos en Polonia. A continuación, te proporciono la experiencia laboral de un candidato y el puesto al que desea aplicar. Puesto de Interés: ${jobType}. Experiencia del Candidato: "${userExperience}". Tu tarea es analizar esta información y proporcionar una respuesta estructurada con los siguientes puntos: **Análisis de Compatibilidad:** Un párrafo breve evaluando qué tan bien la experiencia del candidato se alinea con el puesto. **Puntos Fuertes a Destacar:** Una lista de 2-3 habilidades o experiencias clave del candidato que debería resaltar en su aplicación. **Sugerencias para Mejorar:** Una lista de 1-2 áreas o palabras clave que podría añadir a su perfil para que sea más atractivo para este tipo de rol. **Propuesta de Mensaje de Presentación:** Un borrador de un mensaje corto y profesional que el candidato podría usar para iniciar el contacto, basado en su experiencia. El tono debe ser constructivo, profesional y muy alentador. Formatea la respuesta usando doble asterisco para los subtítulos y guiones para los puntos de las listas.`;
+                callGemini(prompt);
+            });
+
+            // EmailJS functionality
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const serviceID = 'service_y2g29zm'; // Reemplaza con tu Service ID
+                const templateID = 'template_cwm80is'; // Reemplaza con tu Template ID
+                const publicKey = 'UF5SySahSjkTVmLu1'; // Reemplaza con tu Public Key
+
+                if (serviceID === 'service_y2g29z' || templateID === 'template_cwm80i' || publicKey === 'UF5SySahSjkTVmLu') {
+                    showNotification('El formulario no está configurado. Por favor, contacte al administrador.', 'error');
+                    return;
+                }
+
+                emailjs.init(publicKey);
+
+                const submitButton = this.querySelector('button[type="submit"]');
+                submitButton.innerHTML = 'Enviando...';
+                submitButton.disabled = true;
+
+                const templateParams = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    message: document.getElementById('message').value
+                };
+
+                emailjs.send(serviceID, templateID, templateParams)
+                    .then(() => {
+                        showNotification('¡Mensaje enviado con éxito!', 'success');
+                        contactForm.reset();
+                        submitButton.innerHTML = 'Enviar y Empezar mi Proceso';
+                        submitButton.disabled = false;
+                    }, (err) => {
+                        showNotification('Error al enviar el mensaje. Inténtalo de nuevo.', 'error');
+                        console.error('EmailJS error:', err);
+                        submitButton.innerHTML = 'Enviar y Empezar mi Proceso';
+                        submitButton.disabled = false;
+                    });
+            });
+
+            function showNotification(message, type) {
+                const notification = document.getElementById('notification');
+                notification.textContent = message;
+                notification.className = '';
+                notification.classList.add(type === 'success' ? 'bg-green-500' : 'bg-red-500');
+                notification.classList.add('show');
+
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 4000);
+            }
+        });
+    </script>
+</body>
+</html>
